@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+    tbk-front:
+        container_name: tbk-frontend
+        build:
+            context: ./tbk-int-front-example
+            dockerfile: Dockerfile
+        ports:
+            - "4200:4200"
+    tbk-backend:
+        container_name: tbk-backend
+        env_file: ./tbk-int-back-example/.env
+        build:
+            context: ./tbk-int-back-example
+            dockerfile: Dockerfile
+        ports:
+            - "3001:3001"
